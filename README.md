@@ -1,2 +1,2 @@
 # Mind-Reader
-Program guesses the name you are thinking on C#
+Program guesses the number you are thinking on C#
