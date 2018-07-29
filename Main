@@ -1,0 +1,78 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace test1
+{
+    class Program
+    { //Code for printing 
+
+        static void Main()
+        {
+            FindingNumber();
+            Console.ReadKey();
+        }
+        
+        static void FindingNumber()
+        {
+            int x=0;
+            Random random = new Random();
+            int more = 0;
+            int less = 0;
+
+            int ans = 50;
+
+            int NewMax = 100;
+            int NewMin = 0;
+
+            bool flag1=true;
+            bool flag2=true;
+
+            Console.WriteLine("I will guess which number you are thinking");
+            Console.WriteLine("Think of a number in between 0 and 100");
+            while(x!=3)
+            {
+                Console.WriteLine("Is it more or less than " + ans + "?");
+                Console.WriteLine("1. More");
+                Console.WriteLine("2. Less");
+                Console.WriteLine("3. It is "+ans+"!");
+                x = int.Parse(Console.ReadLine());
+                if (x == 1)
+                {
+                    if(flag1)
+                    {
+                        flag1 = false;
+                        NewMin = less;
+                    }
+                    more = random.Next(ans+1, NewMax); 
+                    NewMin = ans+1; 
+                    ans = more; 
+                }
+                else if(x==2)
+                {
+                    if(flag2)
+                    {
+                        flag2 = false;
+                        NewMax = more;
+                    }
+                    
+                    less = random.Next(NewMin, NewMax-1);
+                    NewMax = less; 
+                    ans = less; 
+                }
+                else if(x==3)
+                {
+                   
+                }
+                else
+                {
+                    Console.WriteLine("Option not valid");
+                }
+                
+            }
+            Console.WriteLine("Your number is: " + ans);
+        }
+    }
+}
